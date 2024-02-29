@@ -9,13 +9,16 @@ def home():
 @app.route('/process_input', methods=['POST'])
 def process_input():
     try:
-        user_input = int(request.form.get('user_input'))  # Assuming a form input field with name 'user_input'
+        user_input = int(request.form.get('user_input'))  # 'user_input'라는 이름의 폼 입력 필드를 가정합니다.
         if 1 <= user_input <= 9:
             result = "Hello, World! " * user_input
         else:
-            result = "Please enter a number between 1 and 9."
+            result = "1부터 9 사이의 숫자를 입력하세요."
     except ValueError:
-        result = "Invalid input. Please enter a valid number."
+        result = "유효하지 않은 입력입니다. 올바른 숫자를 입력하세요."
+def another_function():
+    # Your code here
+    return "Another response"
 
     return render_template('return.html', result=result)
 
